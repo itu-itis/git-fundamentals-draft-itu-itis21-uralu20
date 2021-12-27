@@ -8,7 +8,21 @@
         <link rel="stylesheet" type= "text/css" href="15_11_2021.css"/>
     </head>
 
-    <body>
+    <!-- We called welcomeFunction onload and added other events. -->
+    <body onload="welcomeFunction(); document.body.style.backgroundColor = 'pink' "
+          onresize="document.body.style.backgroundColor = 'lightblue' "
+
+          onkeydown="document.body.style.backgroundColor = 'white' "
+          onkeyup="document.body.style.backgroundColor = 'lightyellow' ">
+
+        <!-- Script that alerts welcome. -->
+        <script type="text/javascript">
+
+            function welcomeFunction() {
+                alert("Welcome!");
+            }
+
+        </script>
 
         <p>
             <strong> Introduction to Information Systems </strong>
@@ -16,7 +30,8 @@
 
 
         <!-- Name, surname and number -->
-        <p class = "centered">
+        <!-- If the mouse is over p element with the class name 'centered' the fontstyle will change. -->
+        <p class = "centered" onmouseover="document.querySelector('.centered').style.font = 'bold 20pt arial,serif' ">
             <em>
             Umut URAL
             <br>
@@ -24,20 +39,30 @@
             </em>
         </p>
 
-        <!-- List -->
-        <ul>
+        <!-- We gave this list a id in order to reach it. -->
+        <!-- We did the same thing with the inner list. -->
+        <ul id="unorderedL"
+            onmouseover="document.getElementById('unorderedL').style.backgroundColor= 'purple' ">
             <li> Homo habilis (able man) </li>
             <li> Homo erecturs (upright man) </li>
             <li> Homo neanderthalensis </li>
             <li> Homo floresiensis (hobbit) </li>
             <li> Homo Sapiens (wise man) </li>
-            <ul>
+            <ul id = "insideUL"
+                onclick="document.getElementById('insideUL').style.backgroundColor = 'orange' ">
                 <li> Homo sapiens sapiens </li>
             </ul>
         </ul>
 
         <!-- Heading for the image HUMAN EVOLUTION -->
-        <h1> <strong> Human Evolution </strong> </h1>
+        <!-- We changed the color and the background color on moues interactions -->
+        <h1 onmouseover="style.color='orange' ;
+                         style.backgroundColor= 'lightgreen' "
+            onmouseout="style.color='red';
+                        style.backgroundColor= 'white' ">
+
+            <strong> Human Evolution </strong> </h1>
+
         <p> <img src="evolution-diagram.png" alt = "Evolution Diagram"> </p>
 
         <!--  Link to Biology online-->
@@ -46,9 +71,13 @@
 
 
         <!-- Clickable image and its header.-->
+        <!-- We'll add id and alt to this image and we'll show this alt when clicked -->
         <h2> <strong> The Clickable Image </strong> </h2>
         <a href="https://www.biologyonline.com/dictionary/homo-sapiens-sapiens">
-            <p> <img src="evolution-diagram.png" alt = "Evolution Diagram"> </p>
+            <p> <img src="evolution-diagram.png"
+                     alt = "Evolution Diagram"
+                     id = "myImg"
+                     onclick="alert(document.getElementById('myImg').alt)"> </p>
         </a>
 
         <!-- Table  -->
